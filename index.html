@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Editkaro.in - Portfolio</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+
+  body {
+    background: #0e0e0e;
+    color: #fff;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-in-out;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    color: rebeccapurple;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  header p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-top: 10px;
+  }
+
+  @keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .filter-buttons {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+  .filter-buttons button {
+    background: #1f1f1f;
+    border: none;
+    color: #fff;
+    padding: 10px 18px;
+    margin: 8px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .filter-buttons button.active,
+  .filter-buttons button:hover {
+    background: #ffcc00;
+    color: #000;
+    transform: scale(1.1);
+  }
+
+  .portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    cursor: pointer;
+    background: #222;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    height:200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+
+  .portfolio-item:hover img {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+
+  .portfolio-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: greenyellow;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.portfolio-item h4 {
+  color: lightsalmon; 
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 10px 0;
+  font-family: 'Orbitron', sans-serif; 
+}
+
+
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 90%;
+    background: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  .lightbox video {
+    width: 85%;
+    max-width: 900px;
+    border-radius: 12px;
+    outline: none;
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 2rem;
+    color: #ffcc00;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .close-btn:hover {
+    transform: scale(1.2);
+    color: #fff;
+  }
+
+  @media(max-width: 768px) {
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 1rem; }
+    .portfolio-item img { height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><i class="fas fa-video"></i> Editkaro.in</h1>
+  <p>Social Media Marketing & Video Editing Portfolio</p>
+</header>
+
+<div class="filter-buttons">
+  <button class="active" data-filter="all">All</button>
+  <button data-filter="short">Short-Form</button>
+  <button data-filter="long">Long-Form</button>
+  <button data-filter="gaming">Gaming</button>
+  <button data-filter="football">Football</button>
+  <button data-filter="ads">Ads</button>
+  <button data-filter="anime">Anime</button>
+  <button data-filter="color">Color Grading</button>
+</div>
+
+<div class="portfolio-container">
+  <div class="portfolio-item" data-category="short">
+    <img src="D:\vault_of_codes_projects\mini_project\images\short.jpg" alt="Short Video">
+    <div class="portfolio-item h4"></div>
+    <h4><u>Short Video</u></h4>
+    <div class="portfolio-title">Short-Form Video</div>
+    <ul>
+      <li>> Fast-paced transitions</li>
+      <li>>>Bright color grading for the “after” clips</li>
+      <li>>>>Upbeat background music</li>
+    </ul>
+    <p>"🎥 Tired of dull videos? Let us turn your clips into cinematic magic! ✨"</p>
+    <p>"🚀 Let’s create something amazing together!"</p>
+    <p><b>Text Overlay:</b></p>
+    <p>✔ Reels </p>
+    <p>✔ Ads </p>
+    <p>✔ Weddings </p>
+    <p>✔ Cinematic Edits 🎬</p>
+
+    <video data-src="videos/short_video.mp4"></video>
+  </div>
+
+  <div class="portfolio-item" data-category="long">
+    <img src="D:\vault_of_codes_projects\mini_project\images\long.jpg" alt="Long Video">
+    <div class="portfolio-item h4"></div>
+    <h4><u>Long Video</u></h4>
+    <div class="portfolio-title">Long-Form Video</div>
+    <p>>Showcase your brand story</p>
+    <p>>>Highlight services</p>
+    <p>>>>Present before & after transformations</p>
+    <p>>>>>Show testimonials or case studies</p>
+    <p>"Keep pacing dynamic – alternate between fast & smooth transitions"</p>
+    <p>"This video is having different size compared to regular videos"</p>
+    <p>Text Overlay:</p>
+    <p>✔ Instagram Reels 🎬</p>
+    <p> ✔ Wedding Highlights </p>
+    <p>✔ Ad Films </p>
+    <p>✔ Cinematic Edits </p>
+    <video data-src="videos/long_video.mp4"></video>
+  </div>
+
+  <div class="portfolio-item" data-category="gaming">
+    <img src="D:\vault_of_codes_projects\mini_project\images\gaming.jpg" alt="Gaming">
+    <div class="portfolio-item h4"></div>
+    <h4><u>Animated Gaming Video</u></h4>
+    <div class="portfolio-title">Gaming Video</div>
+    <ul>
+        <li>> Epic Gameplay Moments</li>
+        <li>>>Next-Level Gaming</li>
+        <li>>>>Ultimate Boss Fight</li>
+        <li>🎧>>>>>>>🎮"⌨"</li>
+    </ul>
+    <p><b>Stream Highlights:</b></p>
+    <p>“High-quality, fast-paced, and full of action – watch now!”</p>
+<p> “Experience high-octane gameplay with insane edits and cinematic effects!”</p>
+    <p>“Unleash the gamer inside – insane highlights and perfect cuts.”</p>
+    <video data-src="videos/gaming.mp4"></video>
+  </div>
+
+  <div class="portfolio-item" data-category="football">
+    <img src="D:\vault_of_codes_projects\mini_project\images\foot_ball.jpg" alt="Football">
+    <div class="portfolio-item h4"></div>
+    <h4><u>FootBall Gaming Video</u></h4>
+  <p>>Clip: Start with a slow-motion dribble or kickoff</p>
+  <p>>>Transition: Zoom + glitch effect</p>
+  <p>>>>Goal: Full match highlights, tutorials, or top moments</p>
+  <p>>>>>Background: Logo or channel name</p>
+  <p>"⚽ Goal of the Century!"</p>
+  <p>" Skills on Fire!"</p>
+  <p>"🎯 Perfect Finish!"</p>
+  <p>"🚀 Boom! Top Corner!"</p>
+    <div class="portfolio-title">Football Edit</div>
+    <video data-src="videos/football.mp4"></video>
+  </div>
+
+  <div class="portfolio-item" data-category="ads">
+    <img src="D:\vault_of_codes_projects\mini_project\images\advertisement.jpg" alt="Ads">
+    <div class="portfolio-item h4"></div>
+    <h4><u>Advertisment Video</u></h4>
+    <p>>Goal: Catch attention, show product features, and drive purchase</p>
+    <p>>>Use Cases: Clips of customers using it (home, office, gifting)</p>
+    <p>>>>Social Proof: Quick testimonial overlay like “Loved the quality! ⭐⭐⭐⭐⭐”.</p>
+    <p>"Limited Offer – Order Now!"</p>
+    <p>📦✨ "Your Perfect Storage Partner!"</p>
+    <p>Storage & Organization 🏠</p>
+    <div class="portfolio-title">Advertisement</div>
+    <video data-src="videos/advertisment_video.mp4"></video>
+  </div>
+
+  <div class="portfolio-item" data-category="anime">
+    <img src="D:\vault_of_codes_projects\mini_project\images\anime.jpg" alt="Anime">
+    <div class="portfolio-item h4"></div>
+    <h4><u>Anime Video</u></h4>
+    <p>>Clip: Slow-motion entry of main characters (e.g., Luffy vs. Kaido, Naruto vs. Sasuke)</p>
+    <p>Text: "⚔️ When Legends Collide! 🔥"</p>
+    <p>"Power Level: OVER 9000! 💥"</p>
+    <p>Clips: Sad or inspiring anime moments (e.g., Naruto’s childhood, One Piece flashbacks)</p>
+    <p>"Top Anime Moments You Can’t Forget! 🔥"</p>
+    <div class="portfolio-title">Anime Video</div>
+    <video data-src="videos/anime_video.mp4"></video>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" id="closeBtn">&times;</span>
+  <video id="lightboxVideo" controls autoplay></video>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-buttons button');
+  const items = document.querySelectorAll('.portfolio-item');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      items.forEach(item => {
+        item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
+      });
+    });
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxVideo = document.getElementById('lightboxVideo');
+  const closeBtn = document.getElementById('closeBtn');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const videoSrc = item.querySelector('video').dataset.src;
+      lightboxVideo.src = videoSrc;
+      lightbox.classList.add('active');
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxVideo.pause();
+    lightboxVideo.src = '';
+  });
+</script>
+
+</body>
+</html>
